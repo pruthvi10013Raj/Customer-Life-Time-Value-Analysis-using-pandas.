@@ -1,0 +1,165 @@
+
+C:\Users\Pruthvi>python -m pip install openpyxl
+Collecting openpyxl
+  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting et-xmlfile (from openpyxl)
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Installing collected packages: et-xmlfile, openpyxl
+Successfully installed et-xmlfile-2.0.0 openpyxl-3.1.5
+
+[notice] A new release of pip is available: 25.1.1 -> 25.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+C:\Users\Pruthvi>python
+Python 3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas as pd
+>>> import os
+>>> import openpyxl
+>>> print(os.getcwd())
+C:\Users\Pruthvi
+>>> os.chdir('E:\\Projects\\CLV_python')
+>>> print(os.listdir())
+['data.xlsx']
+>>> df=pd.read_excel('data.xlsx')
+>>> df.head()
+  InvoiceNo StockCode                          Description  ...  UnitPrice CustomerID         Country
+0    536365    85123A   WHITE HANGING HEART T-LIGHT HOLDER  ...       2.55    17850.0  United Kingdom
+1    536365     71053                  WHITE METAL LANTERN  ...       3.39    17850.0  United Kingdom
+2    536365    84406B       CREAM CUPID HEARTS COAT HANGER  ...       2.75    17850.0  United Kingdom
+3    536365    84029G  KNITTED UNION FLAG HOT WATER BOTTLE  ...       3.39    17850.0  United Kingdom
+4    536365    84029E       RED WOOLLY HOTTIE WHITE HEART.  ...       3.39    17850.0  United Kingdom
+
+[5 rows x 8 columns]
+>>> df.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 541909 entries, 0 to 541908
+Data columns (total 8 columns):
+ #   Column       Non-Null Count   Dtype
+---  ------       --------------   -----
+ 0   InvoiceNo    541909 non-null  object
+ 1   StockCode    541909 non-null  object
+ 2   Description  540455 non-null  object
+ 3   Quantity     541909 non-null  int64
+ 4   InvoiceDate  541909 non-null  datetime64[ns]
+ 5   UnitPrice    541909 non-null  float64
+ 6   CustomerID   406829 non-null  float64
+ 7   Country      541909 non-null  object
+dtypes: datetime64[ns](1), float64(2), int64(1), object(4)
+memory usage: 33.1+ MB
+>>> df.describe()
+            Quantity                    InvoiceDate      UnitPrice     CustomerID
+count  541909.000000                         541909  541909.000000  406829.000000
+mean        9.552250  2011-07-04 13:34:57.156386048       4.611114   15287.690570
+min    -80995.000000            2010-12-01 08:26:00  -11062.060000   12346.000000
+25%         1.000000            2011-03-28 11:34:00       1.250000   13953.000000
+50%         3.000000            2011-07-19 17:17:00       2.080000   15152.000000
+75%        10.000000            2011-10-19 11:27:00       4.130000   16791.000000
+max     80995.000000            2011-12-09 12:50:00   38970.000000   18287.000000
+std       218.081158                            NaN      96.759853    1713.600303
+>>> df.dropna(subset=['CustomerID'], inplace=True)
+>>> df.describe()
+            Quantity                    InvoiceDate      UnitPrice     CustomerID
+count  406829.000000                         406829  406829.000000  406829.000000
+mean       12.061303  2011-07-10 16:30:57.879207424       3.460471   15287.690570
+min    -80995.000000            2010-12-01 08:26:00       0.000000   12346.000000
+25%         2.000000            2011-04-06 15:02:00       1.250000   13953.000000
+50%         5.000000            2011-07-31 11:48:00       1.950000   15152.000000
+75%        12.000000            2011-10-20 13:06:00       3.750000   16791.000000
+max     80995.000000            2011-12-09 12:50:00   38970.000000   18287.000000
+std       248.693370                            NaN      69.315162    1713.600303
+>>> pd.to_datetime()
+Traceback (most recent call last):
+  File "<python-input-12>", line 1, in <module>
+    pd.to_datetime()
+    ~~~~~~~~~~~~~~^^
+TypeError: to_datetime() missing 1 required positional argument: 'arg'
+>>> pd.to_datetime(subset=['InvoiceDate'])
+Traceback (most recent call last):
+  File "<python-input-13>", line 1, in <module>
+    pd.to_datetime(subset=['InvoiceDate'])
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: to_datetime() got an unexpected keyword argument 'subset'
+>>> pd.to_datetime('InvoiceDate')
+Traceback (most recent call last):
+  File "<python-input-14>", line 1, in <module>
+    pd.to_datetime('InvoiceDate')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Pruthvi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\tools\datetimes.py", line 1106, in to_datetime
+    result = convert_listlike(np.array([arg]), format)[0]
+             ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pruthvi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\tools\datetimes.py", line 437, in _convert_listlike_datetimes
+    result, tz_parsed = objects_to_datetime64(
+                        ~~~~~~~~~~~~~~~~~~~~~^
+        arg,
+        ^^^^
+    ...<4 lines>...
+        allow_object=True,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Pruthvi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\arrays\datetimes.py", line 2415, in objects_to_datetime64
+    result, tz_parsed = tslib.array_to_datetime(
+                        ~~~~~~~~~~~~~~~~~~~~~~~^
+        data,
+        ^^^^^
+    ...<4 lines>...
+        creso=abbrev_to_npy_unit(out_unit),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "pandas/_libs/tslib.pyx", line 412, in pandas._libs.tslib.array_to_datetime
+  File "pandas/_libs/tslib.pyx", line 596, in pandas._libs.tslib.array_to_datetime
+  File "pandas/_libs/tslib.pyx", line 553, in pandas._libs.tslib.array_to_datetime
+  File "pandas/_libs/tslibs/conversion.pyx", line 641, in pandas._libs.tslibs.conversion.convert_str_to_tsobject
+  File "pandas/_libs/tslibs/parsing.pyx", line 336, in pandas._libs.tslibs.parsing.parse_datetime_string
+  File "pandas/_libs/tslibs/parsing.pyx", line 666, in pandas._libs.tslibs.parsing.dateutil_parse
+pandas._libs.tslibs.parsing.DateParseError: Unknown datetime string format, unable to parse: InvoiceDate, at position 0
+>>> pd.to_datetime(InvoiceDate)
+Traceback (most recent call last):
+  File "<python-input-15>", line 1, in <module>
+    pd.to_datetime(InvoiceDate)
+                   ^^^^^^^^^^^
+NameError: name 'InvoiceDate' is not defined
+>>> df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+>>> print(df['InvoiceDate'].dtypes)
+datetime64[ns]
+>>> df['TotalSales'] = df['Quantity'] * df['UnitPrice']
+>>> df.info()
+<class 'pandas.core.frame.DataFrame'>
+Index: 406829 entries, 0 to 541908
+Data columns (total 9 columns):
+ #   Column       Non-Null Count   Dtype
+---  ------       --------------   -----
+ 0   InvoiceNo    406829 non-null  object
+ 1   StockCode    406829 non-null  object
+ 2   Description  406829 non-null  object
+ 3   Quantity     406829 non-null  int64
+ 4   InvoiceDate  406829 non-null  datetime64[ns]
+ 5   UnitPrice    406829 non-null  float64
+ 6   CustomerID   406829 non-null  float64
+ 7   Country      406829 non-null  object
+ 8   TotalSales   406829 non-null  float64
+dtypes: datetime64[ns](1), float64(3), int64(1), object(4)
+memory usage: 31.0+ MB
+>>> df['TotalSales'] = df['Quantity'] * df['UnitPrice']
+>>> monthly_sales = df.set_index('InvoiceDate').resample('M')['TotalSales'].sum()
+<python-input-21>:1: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+>>> import matplotlib.pyplot as plt
+>>> plt.figure(figsize=(12,6))
+<Figure size 1200x600 with 0 Axes>
+>>> plt.plot(monthly_sales.index, monthly_sales.values, marker='o')
+[<matplotlib.lines.Line2D object at 0x0000019C822BAFD0>]
+>>> plt.title("Monthly Sales Over Time")
+Text(0.5, 1.0, 'Monthly Sales Over Time')
+>>> plt.xlabel("Month")
+Text(0.5, 0, 'Month')
+>>> plt.ylabel("Total Sales")
+Text(0, 0.5, 'Total Sales')
+>>> plt.grid(True)
+>>> plt.show()
+>>>
+>>>
+>>>

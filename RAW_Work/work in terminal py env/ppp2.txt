@@ -1,0 +1,440 @@
+Microsoft Windows [Version 10.0.26100.6584]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Pruthvi>pip list
+Package                   Version
+------------------------- --------------
+anyio                     4.10.0
+argon2-cffi               25.1.0
+argon2-cffi-bindings      25.1.0
+arrow                     1.3.0
+asttokens                 3.0.0
+async-lru                 2.0.5
+attrs                     25.3.0
+babel                     2.17.0
+beautifulsoup4            4.13.5
+bleach                    6.2.0
+certifi                   2025.8.3
+cffi                      1.17.1
+charset-normalizer        3.4.3
+colorama                  0.4.6
+comm                      0.2.3
+contourpy                 1.3.3
+cycler                    0.12.1
+debugpy                   1.8.16
+decorator                 5.2.1
+defusedxml                0.7.1
+et_xmlfile                2.0.0
+executing                 2.2.1
+fastjsonschema            2.21.2
+fonttools                 4.59.2
+fqdn                      1.5.1
+h11                       0.16.0
+httpcore                  1.0.9
+httpx                     0.28.1
+idna                      3.10
+ipykernel                 6.30.1
+ipython                   9.5.0
+ipython_pygments_lexers   1.1.1
+isoduration               20.11.0
+jedi                      0.19.2
+Jinja2                    3.1.6
+joblib                    1.5.2
+json5                     0.12.1
+jsonpointer               3.0.0
+jsonschema                4.25.1
+jsonschema-specifications 2025.4.1
+jupyter_client            8.6.3
+jupyter_core              5.8.1
+jupyter-events            0.12.0
+jupyter-lsp               2.3.0
+jupyter_server            2.17.0
+jupyter_server_terminals  0.5.3
+jupyterlab                4.4.6
+jupyterlab_pygments       0.3.0
+jupyterlab_server         2.27.3
+kiwisolver                1.4.9
+lark                      1.2.2
+MarkupSafe                3.0.2
+matplotlib                3.10.6
+matplotlib-inline         0.1.7
+mistune                   3.1.4
+nbclient                  0.10.2
+nbconvert                 7.16.6
+nbformat                  5.10.4
+nest-asyncio              1.6.0
+notebook                  7.4.5
+notebook_shim             0.2.4
+numpy                     2.3.3
+openpyxl                  3.1.5
+packaging                 25.0
+pandas                    2.3.2
+pandocfilters             1.5.1
+parso                     0.8.5
+pillow                    11.3.0
+pip                       25.1.1
+platformdirs              4.4.0
+prometheus_client         0.22.1
+prompt_toolkit            3.0.52
+psutil                    7.0.0
+pure_eval                 0.2.3
+pycparser                 2.22
+Pygments                  2.19.2
+pyparsing                 3.2.4
+python-dateutil           2.9.0.post0
+python-json-logger        3.3.0
+pytz                      2025.2
+pywin32                   311
+pywinpty                  3.0.0
+PyYAML                    6.0.2
+pyzmq                     27.0.2
+referencing               0.36.2
+requests                  2.32.5
+rfc3339-validator         0.1.4
+rfc3986-validator         0.1.1
+rfc3987-syntax            1.1.0
+rpds-py                   0.27.1
+scikit-learn              1.7.2
+scipy                     1.16.2
+seaborn                   0.13.2
+Send2Trash                1.8.3
+setuptools                80.9.0
+six                       1.17.0
+sniffio                   1.3.1
+soupsieve                 2.8
+stack-data                0.6.3
+terminado                 0.18.1
+threadpoolctl             3.6.0
+tinycss2                  1.4.0
+tornado                   6.5.2
+traitlets                 5.14.3
+types-python-dateutil     2.9.0.20250822
+typing_extensions         4.15.0
+tzdata                    2025.2
+uri-template              1.3.0
+urllib3                   2.5.0
+wcwidth                   0.2.13
+webcolors                 24.11.1
+webencodings              0.5.1
+websocket-client          1.8.0
+
+C:\Users\Pruthvi>python
+Python 3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import pandas as pd
+>>> import os
+>>> import openpyxl
+>>> os.chdir('E:\\Projects\\CLV_python')
+>>> pritn(os.listdir())
+Traceback (most recent call last):
+  File "<python-input-4>", line 1, in <module>
+    pritn(os.listdir())
+    ^^^^^
+NameError: name 'pritn' is not defined. Did you mean: 'print'?
+>>> print(os.listdir())
+['data', 'requirements.txt.txt', 'Scripts.py.txt']
+>>> df=pd.read_excel('data.xlsx')
+Traceback (most recent call last):
+  File "<python-input-6>", line 1, in <module>
+    df=pd.read_excel('data.xlsx')
+  File "C:\Users\Pruthvi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 495, in read_excel
+    io = ExcelFile(
+        io,
+    ...<2 lines>...
+        engine_kwargs=engine_kwargs,
+    )
+  File "C:\Users\Pruthvi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 1550, in __init__
+    ext = inspect_excel_format(
+        content_or_path=path_or_buffer, storage_options=storage_options
+    )
+  File "C:\Users\Pruthvi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\excel\_base.py", line 1402, in inspect_excel_format
+    with get_handle(
+         ~~~~~~~~~~^
+        content_or_path, "rb", storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as handle:
+    ^
+  File "C:\Users\Pruthvi\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\io\common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data.xlsx'
+>>> os.chdir('E:\\Projects\\CLV_python\\data')
+>>> print(os.listdir())
+['data.xlsx']
+>>> df=pd.read_excel('data.xlsx')
+>>>  df.dropna(subset=['CustomerID'], inplace=True)
+  File "<python-input-10>", line 1
+    df.dropna(subset=['CustomerID'], inplace=True)
+IndentationError: unexpected indent
+>>> df.describe()
+            Quantity  ...     CustomerID
+count  541909.000000  ...  406829.000000
+mean        9.552250  ...   15287.690570
+min    -80995.000000  ...   12346.000000
+25%         1.000000  ...   13953.000000
+50%         3.000000  ...   15152.000000
+75%        10.000000  ...   16791.000000
+max     80995.000000  ...   18287.000000
+std       218.081158  ...    1713.600303
+
+[8 rows x 4 columns]
+>>>  df.dropna(subset=['CustomerID'], inplace=True)
+  File "<python-input-12>", line 1
+    df.dropna(subset=['CustomerID'], inplace=True)
+IndentationError: unexpected indent
+>>> df.dropna(subset=['CustomerID'], inplace=True)
+>>> df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate'])
+>>> df['TotalSales'] = df['Quantity'] * df['UnitPrice']
+>>> monthly_sales = df.set_index('InvoiceDate').resample('M')['TotalSales'].\sum()
+<python-input-16>:1: FutureWarning: 'M' is deprecated and will be removed in a future version, please use 'ME' instead.
+>>> monthly_sales = df.set_index('InvoiceDate').resample('ME')['TotalSales']\.sum()
+>>> import matplotlib.pyplot as plt
+>>> plt.figure(figsize=(12,6))
+<Figure size 1200x600 with 0 Axes>
+>>> plt.plot(monthly_sales.index, monthly_sales.values, marker='o')
+[<matplotlib.lines.Line2D object at 0x0000017C00C22FD0>]
+>>> plt.title("Monthly Sales Over Time")
+Text(0.5, 1.0, 'Monthly Sales Over Time')
+>>> plt.xlabel("Month")
+Text(0.5, 0, 'Month')
+>>> plt.ylabel("Total Sales")
+Text(0, 0.5, 'Total Sales')
+>>> plt.grid(True)
+>>> plt.show()
+>>> snapshot_date = df['InvoiceDate'].max() + pd.Timedelta(days=1)
+>>> print("Snapshot Date:", snapshot_date)
+Snapshot Date: 2011-12-10 12:50:00
+>>> rfm = df.groupby('CustomerID').agg({
+...     'InvoiceDate': lambda x: (snapshot_date - x.max()).days,   # Recencycy..     'InvoiceNo': 'nunique',                                    # Frequeny...     'TotalSales': 'sum'                                        # Moneta..... })
+...
+>>>
+>>> rfm.rename(columns={
+...     'InvoiceDate': 'Recency',
+...     'InvoiceNo': 'Frequency',
+...     'TotalSales': 'Monetary'
+... }, inplace=True)
+...
+>>> print(rfm.head())
+            Recency  Frequency  Monetary
+CustomerID
+12346.0         326          2      0.00
+12347.0           2          7   4310.00
+12348.0          75          4   1797.24
+12349.0          19          1   1757.55
+12350.0         310          1    334.40
+>>> cutoff_date = df['InvoiceDate'].max() - pd.DateOffset(months=2\)
+>>> train = df[df['InvoiceDate'] <= cutoff_date]
+>>> test = df[df['InvoiceDate'] > cutoff_date]
+>>> train_monetary = train.groupby('CustomerID')['TotalSales'].sum\()
+>>> test_monetary  = test.groupby('CustomerID')['TotalSales'].sum(\)
+>>> print(test_monetary)
+CustomerID
+12347.0    1519.14
+12349.0    1757.55
+12352.0     311.73
+12356.0      58.35
+12357.0    6207.67
+            ...
+18276.0     323.36
+18277.0     110.38
+18282.0      77.84
+18283.0     974.21
+18287.0    1072.00
+Name: TotalSales, Length: 2463, dtype: float64
+>>> rfm_train = rfm.copy()
+>>> rfm_train['FutureMonetary'] = test_monetary
+>>> rfm_train['FutureMonetary'].fillna(0, inplace=True)
+<python-input-40>:1: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+>>> X = rfm_train[['Recency', 'Frequency', 'Monetary']]
+>>> y = rfm_train['FutureMonetary']
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> #STEP4 STARTING FROM HERE
+>>>
+>>>
+>>>
+>>> from sklearn.model_selection import train_test_split
+>>> X_train, X_test, y_train, y_test = train_test_split(
+...     X, y, test_size=0.2, random_state=42
+... )
+>>> from sklearn.linear_model import LinearRegression
+>>> from sklearn.metrics import mean_squared_error
+>>> import numpy as np
+>>> linreg = LinearRegression()
+>>> linreg.fit(X_train, y_train)
+LinearRegression()
+>>> y_pred_lr = linreg.predict(X_test)
+>>> rmse_lr = np.sqrt(mean_squared_error(y_test, y_pred_lr))
+>>> print("Linear Regression RMSE:", rmse_lr)
+Linear Regression RMSE: 969.8524584377657
+>>> from sklearn.ensemble import RandomForestRegressor
+>>> rf = RandomForestRegressor(n_estimators=100, random_state=42)
+>>> rf.fit(X_train, y_train)
+RandomForestRegressor(random_state=42)
+>>> y_pred_rf = rf.predict(X_test)
+>>> rmse_rf = np.sqrt(mean_squared_error(y_test, y_pred_rf))
+>>> print("Random Forest RMSE:", rmse_rf)
+Random Forest RMSE: 1121.983565418474
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> #That’s my baseline predictive modeling pipeline!
+>>> #That’s my baseline predictive modeling pipeline!
+>>> #That’s my baseline predictive modeling pipeline!#
+... #RFM featur... #RFM features → Train/Test split → Linear Regression & Random#\                                                   F##Forest → RMSE evaluation.
+>>> #That’s my baseline predictive modeling pipeline!
+>>> #RFM features → Train/Test split → Linear Regression & Random Forest → RMSE evaluation.
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> import matplotlib.pyplot as plt
+>>> plt.figure(figsize=(7,6))
+<Figure size 700x600 with 0 Axes>
+>>> plt.scatter(y_test, y_pred_lr, alpha=0.6, color="blue", l\abel="Predicted")
+<matplotlib.collections.PathCollection object at 0x0000017C038AFA10>
+>>> plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_t\est.max()], 'r--', lw=2, label="Perfect Prediction")
+[<matplotlib.lines.Line2D object at 0x0000017C03375D10>]
+>>> plt.xlabel("Actual Future Monetary Value")
+Text(0.5, 0, 'Actual Future Monetary Value')
+>>> plt.ylabel("Predicted Future Monetary Value")
+Text(0, 0.5, 'Predicted Future Monetary Value')
+>>> plt.title("Linear Regression: Actual vs Predicted")
+Text(0.5, 1.0, 'Linear Regression: Actual vs Predicted')
+>>> plt.legend()
+<matplotlib.legend.Legend object at 0x0000017C038AFCB0>
+>>> plt.show()
+>>> python try.py
+  File "<python-input-94>", line 1
+    python try.py
+           ^^^
+SyntaxError: invalid syntax
+>>> print(os.getcwd())
+E:\Projects\CLV_python\data
+>>>
+>>>
+>>> python try.py
+  File "<python-input-98>", line 1
+    python try.py
+           ^^^
+SyntaxError: invalid syntax
+>>> #since this command cannot be runed in python environment\, it only runs in terminal environment
+>>>
+>>>
+>>>
+>>>
+>>> os.system("python try.py")
+Traceback (most recent call last):
+  File "E:\Projects\CLV_python\data\try.py", line 4, in <module>
+    plt.scatter(y_test, y_pred_lr, alpha=0.6, color="blue", label="Predicted")
+                ^^^^^^
+NameError: name 'y_test' is not defined
+1
+>>> ###ok leave this i will see it later
+>>>
+>>>
+>>>
+>>> plt.figure(figsize=(7,6))
+<Figure size 700x600 with 0 Axes>
+>>> plt.scatter(y_test, y_pred_rf, alpha=0.6, color="green", \label="Predicted")
+<matplotlib.collections.PathCollection object at 0x0000017C03528190>
+>>> plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_t\est.max()], 'r--', lw=2, label="Perfect Prediction")
+[<matplotlib.lines.Line2D object at 0x0000017C03528550>]
+>>> plt.xlabel("Actual Future Monetary Value")
+Text(0.5, 0, 'Actual Future Monetary Value')
+>>> plt.ylabel("Predicted Future Monetary Value")
+Text(0, 0.5, 'Predicted Future Monetary Value')
+>>> plt.title("Random Forest: Actual vs Predicted")
+Text(0.5, 1.0, 'Random Forest: Actual vs Predicted')
+>>> plt.legend()
+<matplotlib.legend.Legend object at 0x0000017C03528690>
+>>> plt.show()
+>>> plt.show()
+>>> import matplotlib.pyplot as plt
+>>> plt.figure(figsize=(12,6))
+<Figure size 1200x600 with 0 Axes>
+>>> plt.plot(monthly_sales.index, monthly_sales.values, marker='o')
+[<matplotlib.lines.Line2D object at 0x0000017C03576AD0>]
+>>> plt.title("Monthly Sales Over Time")
+Text(0.5, 1.0, 'Monthly Sales Over Time')
+>>> plt.xlabel("Month")
+Text(0.5, 0, 'Month')
+>>> plt.ylabel("Total Sales")
+Text(0, 0.5, 'Total Sales')
+>>> plt.grid(True)
+>>> plt.show()
+>>> top_products = df.groupby('Description')['TotalSales'].sum().sort_value\s(ascending=False).head(10)
+>>> plt.figure(figsize=(12,6))
+<Figure size 1200x600 with 0 Axes>
+>>> top_products.plot(kind='bar')
+<Axes: xlabel='Description'>
+>>> plt.title("Top 10 Products by Sales")
+Text(0.5, 1.0, 'Top 10 Products by Sales')
+>>> plt.xlabel("Product")
+Text(0.5, 0, 'Product')
+>>> plt.ylabel("Total Sales")
+Text(0, 0.5, 'Total Sales')
+>>> plt.xticks(rotation=45, ha='right')
+(array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]), [Text(0, 0, 'REGENCY CAKESTAND 3 TIER'), Text(1, 0, 'WHITE HANGING HEART T-LIGHT HOLDER'), Text(2, 0, 'JUMBO BAG RED RETROSPOT'), Text(3, 0, 'PARTY BUNTING'), Text(4, 0, 'POSTAGE'), Text(5, 0, 'ASSORTED COLOUR BIRD ORNAMENT'), Text(6, 0, 'RABBIT NIGHT LIGHT'), Text(7, 0, 'CHILLI LIGHTS'), Text(8, 0, "PAPER CHAIN KIT 50'S CHRISTMAS "), Text(9, 0, 'PICNIC BASKET WICKER 60 PIECES')])
+>>> plt.show()
+>>> top_countries = df.groupby('Country')['TotalSales'].sum().sort_values(a\scending=False).head(10)
+>>> plt.figure(figsize=(12,6))
+<Figure size 1200x600 with 0 Axes>
+>>> top_countries.plot(kind='bar', color='skyblue')
+<Axes: xlabel='Country'>
+>>> plt.title("Top 10 Countries by Sales")
+Text(0.5, 1.0, 'Top 10 Countries by Sales')
+>>> plt.xlabel("Country")
+Text(0.5, 0, 'Country')
+>>> plt.ylabel("Total Sales")
+Text(0, 0.5, 'Total Sales')
+>>> plt.xticks(rotation=45)
+(array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]), [Text(0, 0, 'United Kingdom'), Text(1, 0, 'Netherlands'), Text(2, 0, 'EIRE'), Text(3, 0, 'Germany'), Text(4, 0, 'France'), Text(5, 0, 'Australia'), Text(6, 0, 'Switzerland'), Text(7, 0, 'Spain'), Text(8, 0, 'Belgium'), Text(9, 0, 'Sweden')])
+>>> plt.show()
+>>> plt.figure(figsize=(7,6))
+<Figure size 700x600 with 0 Axes>
+>>>
+KeyboardInterrupt
+>>> plt.scatter(y_test, y_pred_lr, alpha=0.6, color="blue", label="Predicte\d")
+<matplotlib.collections.PathCollection object at 0x0000017C7DB59810>
+>>> plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r\--', lw=2, label="Perfect Prediction")
+[<matplotlib.lines.Line2D object at 0x0000017C7DB59A90>]
+>>> plt.xlabel("Actual Future Monetary Value")
+Text(0.5, 0, 'Actual Future Monetary Value')
+>>> plt.ylabel("Predicted Future Monetary Value")
+Text(0, 0.5, 'Predicted Future Monetary Value')
+>>> plt.title("Linear Regression: Actual vs Predicted")
+Text(0.5, 1.0, 'Linear Regression: Actual vs Predicted')
+>>> plt.legend()
+<matplotlib.legend.Legend object at 0x0000017C7DB59950>
+>>> plt.show()
+>>> plt.figure(figsize=(7,6))
+<Figure size 700x600 with 0 Axes>
+>>> plt.scatter(y_test, y_pred_rf, alpha=0.6, color="green", label="Predict\ed")
+<matplotlib.collections.PathCollection object at 0x0000017C7DF8E490>
+>>> plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r\--', lw=2, label="Perfect Prediction")
+[<matplotlib.lines.Line2D object at 0x0000017C7DF8E710>]
+>>> plt.xlabel("Actual Future Monetary Value")
+Text(0.5, 0, 'Actual Future Monetary Value')
+>>> plt.ylabel("Predicted Future Monetary Value")
+Text(0, 0.5, 'Predicted Future Monetary Value')
+>>> plt.title("Random Forest: Actual vs Predicted")
+Text(0.5, 1.0, 'Random Forest: Actual vs Predicted')
+>>> plt.legend()
+<matplotlib.legend.Legend object at 0x0000017C7DF8E5D0>
+>>> plt.show()
+>>>
